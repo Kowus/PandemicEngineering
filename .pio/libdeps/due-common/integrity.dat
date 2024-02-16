@@ -1,0 +1,11 @@
+https://github.com/lvgl/lvgl.git#e3f0b85623962c9ff7e0b58813d075050d772b26
+https://github.com/bakercp/CRC32#2.0.0
+https://github.com/ivanseidel/DueTimer#1.4.7
+https://github.com/boston-engineering/AMS_AS5048B#i2c_return_error_if_issue_with_comms
+Adafruit GFX Library
+Adafruit BusIO
+https://github.com/sparkfun/SparkFun_External_EEPROM_Arduino_Library.git#v1.0.5
+SD
+https://github.com/waspinator/AccelStepper#1.61
+https://github.com/boston-engineering/Adafruit_RA8875.git#feature/dmaspi-multi-buffer
+Adafruit STMPE610

@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../libraries/**",
+                "C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino/**",
+                "C:/Program Files (x86)/Arduino/hardware/tools/avr/avr/include/**",
+                "C:/Program Files (x86)/Arduino/hardware/teensy/avr/libraries/**",
+                "C:/Program Files (x86)/Arduino/hardware/**",
+                "${INCLUDE}",
+                "C:/Qt/6.4.2/mingw_64/include/**",
+                "${workspaceFolder}/../libraries/**/src/**",
+                "${userHome}/AppData/Local/Arduino15/packages/esp32/hardware/**/**/libraries/**",
+                "${userHome}/OneDrive/Documents/Arduino/libraries/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USBCON"
+            ]
+        }
+    ],
+    "version": 4
+}
