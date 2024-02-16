@@ -24,10 +24,15 @@ void O2_8500FS_L40::send_buffer(int len, int cmd, int frames[8])
   transmission_buffer[0] = TX_HEADER;
   transmission_buffer[1] = len;
   transmission_buffer[2] = cmd;
+  int check_sum = 0;
   for (int i = 3; i < len + 3; i++)
   {
     transmission_buffer[i] = frames[i - 3];
+    check_sum += transmission_buffer[i];
   }
+  check_sum = 256 - (check_sum + TX_HEADER + len + cmd);
+  transmission_buffer[len + 3] = check_sum;
+  ser_port->write(transmission_buffer, len + 3);
 }
 
 double O2_8500FS_L40::get_volume_percent(Units_oxygen units = Units_oxygen::volume_percent)
