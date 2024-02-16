@@ -29,7 +29,7 @@ public:
   double get_volume_percent(Units_oxygen units = Units_oxygen::volume_percent);
   double get_thermohygrometry(Units_thermohygrometry units = Units_thermohygrometry::celsius);
   void send_buffer(int len, int cmd_data, int frames[8]);
-  void set_tx_buffer(int len, );
+  // void set_tx_buffer(int len, );
 
 private:
   // config vars
@@ -40,6 +40,7 @@ private:
   // tx/rx buffers
   byte transmission_buffer[5];
   byte reception_buffer[12];
+  const uint8_t RX_TIMEOUT = 10;
 
   // conversion constants
   double const CELSIUS_TO_FAHRENHEIT = 0;
