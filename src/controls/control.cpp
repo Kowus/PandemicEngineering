@@ -103,6 +103,8 @@ void loop_test_readout(lv_timer_t *timer)
     {
         cur_pressure -= 42;
     }
+    static double cur_o2 = -2;
+    screen->get_chart(CHART_IDX_OXYGEN)->add_data_point(cur_o2);
 
     // Poll vT sensor, add point to graph and update readout obj.
     // Will not refresh until explicitly told
@@ -194,7 +196,9 @@ void loop_update_readouts(lv_timer_t *timer)
     screen->get_chart(CHART_IDX_FLOW)->add_data_point(cur_flow);
     set_readout(AdjValueType::FLOW, cur_flow);
 
-    // double cur_o2_vol_percent =
+    double oxygen_concentration = control_get_oxygen_concentration();
+    screen->get_chart(CHART_IDX_OXYGEN)->add_data_point(oxygen_concentration);
+    set_readout(AdjValueType::CUR_O2_VOL_PERCENT, oxygen_concentration);
 
     // TODO add more sensors HERE
 
@@ -456,7 +460,8 @@ void control_init()
     {
         diff_sensor.init(MAX_DIFF_PRESSURE_TYPE_1, MIN_DIFF_PRESSURE_TYPE_1, RESISTANCE_1, RESISTANCE_2, 0);
     }
-
+    // Initialize the Oxygen Sensor
+    oxygen_sensor.init();
     // Initialize the state machine
     machine.setup();
 
@@ -626,6 +631,11 @@ double control_get_gauge_pressure()
 double control_get_diff_pressure()
 {
     return diff_sensor.get_pressure(units_pressure::cmH20);
+}
+
+double control_get_oxygen_concentration()
+{
+    return oxygen_sensor.get_volume_percent(units_oxygen::volume_percent);
 }
 
 void control_setup_alarm_cb()
