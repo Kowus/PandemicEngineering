@@ -40,7 +40,7 @@ private:
   // tx/rx buffers
   byte transmission_buffer[5];
   byte reception_buffer[12];
-  const uint8_t RX_TIMEOUT = 10;
+  const uint8_t RX_TIMEOUT = 5;
 
   // conversion constants
   double const CELSIUS_TO_FAHRENHEIT = 0;

@@ -53,4 +53,11 @@ double O2_8500FS_L40::get_volume_percent(Units_oxygen units = Units_oxygen::volu
     }
     delay(RX_TIMEOUT);
   }
+
+  for (int i = 0; i < 12; i++)
+  {
+    reception_buffer[i] = ser_port->read();
+  }
+  double concentration = (reception_buffer[3] * 256 + reception_buffer[4]) / 10;
+  return concentration;
 }
